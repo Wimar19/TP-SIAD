@@ -18,3 +18,18 @@ class Route(sol.Solution):
         if sorted(self.visit_sequence) == locations_list:
             return True
         return False
+    
+    def evaluate(self):
+        if self.validate() == False:
+            # Pour nous, une solution non réalisable aura une très grande
+            # valeur de fonction objectif.
+            # (rappel: nous minimisons l'objectif)
+            return sys.float_info.max
+    
+        obj_val = 0
+        for i in range(0, self.problem.count_locations() - 1):
+            curr_source = self.visit_sequence[i]
+            curr_destination = self.visit_sequence[i + 1]
+            curr_distance = self.problem._dist_matrix[curr_source][curr_destination]
+            obj_val = obj_val + curr_distance
+        return obj_val

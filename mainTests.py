@@ -73,3 +73,10 @@ print(curr_rsol.validate())
 print('La séquence [0, 2, 1, 3] devrait être valide:')
 curr_rsol.visit_sequence = [0, 2, 1, 3]
 print(curr_rsol.validate())
+
+print('La valeur de la fonction objectif pour [0, 2, 3] devrait être un grand nombre:')
+curr_rsol.visit_sequence = [0, 2, 3]
+print(curr_rsol.evaluate())
+print('La valeur de la fonction objectif pour [0, 2, 1, 3] devrait être 65:')
+curr_rsol.visit_sequence = [0, 2, 1, 3]
+print(curr_rsol.evaluate())
