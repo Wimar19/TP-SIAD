@@ -1,3 +1,4 @@
+
 import problem as prob
 import solution as sol
 import solver
@@ -20,11 +21,21 @@ my_sol.validate()
 print('\nTest des fonctions d\'une route:')
 my_rsol.evaluate()
 my_rsol.validate()
-
 print('\nTest du polymorphisme:')
 for sol in (my_sol, my_rsol):
     sol.evaluate()
     sol.validate()
+
+
+print('*** Tests FrpProblems ***')
+print('L\'instance devrait s\'afficher:')
+dist_matrix = [[0, 20, 30, 40],
+                [20, 0, 30, 5],
+                [30, 30, 0, 10],
+                [40, 5, 10, 0]]
+frp_inst = frp.FastRouteProb(dist_matrix=dist_matrix)
+print(str(frp_inst))
+
 print('*** Tests Route ***')
 print('La solution devrait s\'afficher:')
 curr_rsol = rsol.Route(solvedProblem=frp_inst)
