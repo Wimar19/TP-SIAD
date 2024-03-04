@@ -80,3 +80,14 @@ print(curr_rsol.evaluate())
 print('La valeur de la fonction objectif pour [0, 2, 1, 3] devrait être 65:')
 curr_rsol.visit_sequence = [0, 2, 1, 3]
 print(curr_rsol.evaluate())
+
+import frp_rand_solver as frprs
+
+print('*** Tests frp_rand_solver ***')
+print('Retourne une solution sans afficher de sortie:')
+frp_solver = frprs.FrpRandSolver()
+frp_solver.max_time_sec = 3
+frp_solver.verbose = 0
+frp_sol = frp_solver.solve(frp_inst)
+print('Solution retournée: ' + str(frp_sol))
+print('Objectif: ' + str(frp_sol.evaluate()))
