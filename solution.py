@@ -13,8 +13,6 @@ class Solution:
         # un nombre à virgule flottante.
         return sys.float_info.max
     def validate(self):
-        locations_list = list(range(0, self.problem.count_locations()))
-        if sorted(self.visit_sequence) == locations_list:
-            return True
+
         
         return False

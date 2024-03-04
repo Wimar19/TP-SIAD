@@ -14,5 +14,5 @@ class FastRouteProb(prob.Problem):
             tmp_str = tmp_str + '\n'
         return str(tmp_str)
     
-def count_locations(self):
-    return len(self._dist_matrix)
+    def count_locations(self):
+        return len(self._dist_matrix)

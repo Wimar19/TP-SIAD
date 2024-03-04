@@ -41,3 +41,35 @@ print('La solution devrait s\'afficher:')
 curr_rsol = rsol.Route(solvedProblem=frp_inst)
 curr_rsol.visit_sequence = [0, 2, 3]
 print(str(curr_rsol))
+
+print('count_locations devrait donner 4:')
+dist_matrix = [[0, 20, 30, 40],
+                [20, 0, 30, 5],
+                [30, 30, 0, 10],
+                [40, 5, 10, 0]]
+frp_inst = frp.FastRouteProb(dist_matrix=dist_matrix)
+print(frp_inst.count_locations())
+
+print('n_locations devrait être égal à 4:')
+curr_rsol = rsol.Route(solvedProblem=frp_inst)
+n_locations = curr_rsol.problem.count_locations()
+print(n_locations)
+
+print('La séquence initiale devrait être invalide:')
+print(curr_rsol.validate())
+
+print('La séquence [0, 2, 3] devrait être invalide:')
+curr_rsol.visit_sequence = [0, 2, 3]
+print(curr_rsol.validate())
+
+print('La séquence [1, 1, 1, 1] devrait être invalide:')
+curr_rsol.visit_sequence = [1, 1, 1, 1]
+print(curr_rsol.validate())
+
+print('La séquence [0, 1, 2, 3] devrait être valide:')
+curr_rsol.visit_sequence = [0, 1, 2, 3]
+print(curr_rsol.validate())
+
+print('La séquence [0, 2, 1, 3] devrait être valide:')
+curr_rsol.visit_sequence = [0, 2, 1, 3]
+print(curr_rsol.validate())
